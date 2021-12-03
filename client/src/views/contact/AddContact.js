@@ -31,7 +31,7 @@ class AddContact extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		const data = this.state
-		axios.post('/api/post/newcontact', data)
+		axios.post(process.env.REACT_APP_URL + '/api/post/newcontact', data)
 			.then(res => console.log(res.data))
 			.catch((err) => console.log(err))
 		this.props.setTimeout(this.toggle, 5000)

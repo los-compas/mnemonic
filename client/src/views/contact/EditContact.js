@@ -40,7 +40,7 @@ class EditContact extends Component {
 		event.preventDefault()
 		const {data} = this.state
 
-		axios.post('api/post/updatecontact', data)
+		axios.post(process.env.REACT_APP_URL + '/api/post/updatecontact', data)
 			.then(res => console.log(res, data)) 
 			.catch((err) => console.log(err))
 		this.props.setTimeout(this.toggle, 3000)

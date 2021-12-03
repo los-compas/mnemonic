@@ -1,5 +1,7 @@
 runtime: nodejs10
 
+service: mnemonic-client
+
 handlers:
   - url: /
     static_files: build/index.html

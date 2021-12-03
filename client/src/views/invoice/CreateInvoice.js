@@ -40,7 +40,7 @@ class CreateInvoice extends Component {
 			labor	
 		}
 
-		axios.post('/api/post/invoice', data)
+		axios.post(process.env.REACT_APP_URL + '/api/post/invoice', data)
 			.then(res => console.log(res))
 			.catch((err) => console.log(err))
 			.finally(this.props.history.push('/'))

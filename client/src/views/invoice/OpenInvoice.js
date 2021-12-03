@@ -10,7 +10,7 @@ class OpenInvoice extends Component {
     }
 
 	componentDidMount() {
-		axios.get('/api/get/activeinvoice')
+		axios.get(process.env.REACT_APP_URL + '/api/get/activeinvoice')
 			.then(res => this.setState({ data: res.data }))
 			.catch(e => console.error(e.stack))		
 	}

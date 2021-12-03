@@ -17,7 +17,7 @@ class InvoiceDisplay extends Component {
 		const {invoice_id} = this.props.location.state
 		
 		this.setState({isLoading: true})
-		axios.get('/api/get/displayinvoice', {params: {id: invoice_id}})
+		axios.get(process.env.REACT_APP_URL + '/api/get/displayinvoice', {params: {id: invoice_id}})
 			.then(res => this.setState({data: res.data, isLoading: false}))
 			.catch(e => console.log(e.stack))
 	}	

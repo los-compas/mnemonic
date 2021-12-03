@@ -12,7 +12,7 @@ function Contacts() {
 	const [data, setData] = useState(null);
 
 	useEffect(() => {
-		axios.get('http://localhost:4001/api/get/allcontacts')
+		axios.get(process.env.REACT_APP_URL+'/api/get/allcontacts')
 			.then(res => setData(res.data))
 	}, []);
 
