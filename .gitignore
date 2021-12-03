@@ -1,0 +1,8 @@
+# vim 
+*.swp
+
+# env secrets
+env_vars.yaml
+
+# node
+node_modules

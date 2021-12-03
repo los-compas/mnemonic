@@ -4,6 +4,7 @@ const user_ctrl = require('./controllers/user_controller');
 const invoice_ctrl = require('./controllers/invoice_controller');
 
 router.get('/api/get/allcontacts', async (req, res) => {
+	console.log("We here boiii")
 	const result = await user_ctrl.getAllContacts()
 						.then(res => { return res })
 						.catch(e => console.log(e))
