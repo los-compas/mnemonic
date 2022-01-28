@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { invoiceContext } from '../../Context'
 import './UserDisplay.css'
 
-function UserDisplay(props) {
-	const {name, email, phone, street, city, state} = props.state
-	const {unit, po} = props
+const UserDisplay = () => {
+	const {values, user} = useContext(invoiceContext)
+	const {name, email, phone, street, city, state} = user
+	const {unit, po} = values
+
 	return(
 		<div id='user-container'>
 			<div className='user-invoice-info'>

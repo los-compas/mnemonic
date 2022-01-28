@@ -1,25 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { invoiceContext } from '../../Context'
 import * as FaIcons from 'react-icons/fa'
 import './DetailsDisplay.css'
 
-function DetailsDisplay(props) {
-	const {data, handleDelete} = props
+const DetailsDisplay = () => {
+	const {details, setDetails}= useContext(invoiceContext)
 
-	const detailList = data.map((elem, i) => {		
+	const handleDelete = elem => {
+    	setDetails(details.filter(obj => obj !== elem))
+    }
+
+	const detailList = details.map((elem, i) => {		
 		const icon = handleDelete? 	
 			<FaIcons.FaTrash 
-				onClick={() => handleDelete(elem, 'details')}
+				onClick={() => handleDelete(elem)}
 			/> : 
 			<></>
-
-		const total = Math.round(elem.qty * elem.rate).toFixed(2)
 
 		return(
 			<tr key={i}>
 				<td>{elem.descr}</td>
 				<td>{elem.rate}</td>
 				<td>{elem.qty}</td>
-				<td>{total}</td>
+				<td>{elem.total}</td>
 				<td>{icon}</td>
 			</tr>
 		)
